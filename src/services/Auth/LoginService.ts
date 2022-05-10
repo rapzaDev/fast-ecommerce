@@ -3,11 +3,11 @@ import CryptoJS from 'crypto-js';
 
 type ServiceArg =  {
     username: string;
-    password: string;
+    user_password: string;
 };
 
 class LoginService {
-    public async execute({ username, password }: ServiceArg): Promise<any> {
+    public async execute({ username, user_password }: ServiceArg): Promise<any> {
         const user = await User.findOne({ username: username });
         if (!user) throw new Error("Wrong credentials");
 
@@ -18,9 +18,11 @@ class LoginService {
 
         const original_pss = hashedPassword.toString(CryptoJS.enc.Utf8);
 
-        if ( original_pss !== password ) throw new Error("Wrong credentials");
+        if ( original_pss !== user_password ) throw new Error("Wrong credentials");
 
-        return user;
+        const { password, ...rest } = user._doc;
+
+        return {...rest};
     }
 };
 

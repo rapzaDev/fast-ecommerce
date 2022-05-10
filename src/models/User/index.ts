@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import { IUser } from "../../types";
 
 const UserSchema = new mongoose.Schema(
     {
@@ -25,7 +24,7 @@ const UserSchema = new mongoose.Schema(
     { timestamps: true } // createdAt and UpdatedAt 
 );
 
-const teste = mongoose.model<IUser>("User", UserSchema);
+const teste = mongoose.model("User", UserSchema);
 
 export default teste;
 // export default mongoose.model<IUser>("User", UserSchema);

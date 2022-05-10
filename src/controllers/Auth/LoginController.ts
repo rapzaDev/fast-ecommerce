@@ -8,7 +8,10 @@ export default class LoginController {
 
             const login = new LoginService();
 
-            const user = await login.execute({username, password});
+            const user = await login.execute({
+                username, 
+                user_password: password
+            });
 
             return response.status(200).json(user);
         } catch (error) {

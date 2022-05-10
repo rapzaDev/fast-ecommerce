@@ -8,7 +8,7 @@ export default class RegisterUserController {
 
             const registerUser = new RegisterUserService();
 
-            const savedUser = await registerUser.execute({username, email, password});
+            const savedUser = await registerUser.execute({username, email, psswrd: password});
 
             return response.status(201).json(savedUser);
         } catch (error) {
