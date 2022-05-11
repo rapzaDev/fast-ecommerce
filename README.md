@@ -14,3 +14,5 @@
 ### crypto.js
 - passwords and safety using the AES ( Advanced Encryption Standard ) Cipher Algorithm.
 
+### JWT - json-web-token
+- users verification
