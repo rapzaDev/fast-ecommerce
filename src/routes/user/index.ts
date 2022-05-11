@@ -1,30 +1,13 @@
 import { Router } from 'express';
-
-// import UsersRepository from '../repositories/UsersRepository';
-// import CreateUserService from '../services/CreateUserService';
+import VerifyToken from '../../middlewares/VerifyToken';
 
 const UserRouter = Router();
 
-// const UsersRepository = new UsersRepository();
+UserRouter.put("/:id", VerifyToken);
 
-UserRouter.get('/', (request, response) => {
-  try {
-   
-  } catch (err) {
-    return response.status(400).json({ error: err.message });
-  }
-});
+// const registerUserController = new RegisterUserController();
+// const loginController = new LoginController();
 
-
-
-UserRouter.post('/', (request, response) => {
-  try {
-    
-  } catch (err) {
-    return response.status(400).json({ error: err.message });
-  }
-});
-
-
+// UserRouter.post('/register', registerUserController.create);
 
 export default UserRouter;
