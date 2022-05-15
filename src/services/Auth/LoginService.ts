@@ -1,6 +1,7 @@
 import jwt from 'jsonwebtoken';
 import User from '../../models/User';
 import CryptoJS from 'crypto-js';
+import { request } from 'express';
 
 type ServiceArg =  {
     username: string;
@@ -23,6 +24,12 @@ class LoginService {
 
         const { password, ...rest } = user._doc;
 
+        // Setting the request.user with the user keys in db.
+        request.user = {
+            _id: user.id,
+            isAdmin: user.isAdmin
+        };
+
         const access_token = jwt.sign(
             {
                 id: user._id,
@@ -31,6 +38,7 @@ class LoginService {
             process.env.JWT_SECRET,
             {expiresIn:"1d"}
             );
+        console.log("acess token: ", access_token);
 
         return {...rest, access_token};
     }
