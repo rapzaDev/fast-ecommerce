@@ -7,7 +7,7 @@ export default class RegisterUserController {
             const { id } = request.params;
 
             const delete_user = new DeleteUserService();
-            delete_user.execute(id);
+            await delete_user.execute(id);
 
             return response.status(201).json({message: `user with id ${id} was deleted.`});
         } catch (error) {
