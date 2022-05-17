@@ -5,7 +5,8 @@ export default class GetUserController {
     public async create(request: Request, response: Response): Promise<Response> {
         try {
             const get_users = new GetAllUsersService();
-            const users = await get_users.execute();
+            
+            const users = await get_users.execute({query: request.query.new});
 
             const usersData = users.map( user => {
                 const { password, ...rest } = user._doc;
