@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import RegisterUserService from '../../../services/Auth/RegisterUserService';
+import RegisterUserService from '../../../services/User/RegisterUserService';
 
 export default class RegisterUserController {
     public async create(request: Request, response: Response): Promise<Response> {

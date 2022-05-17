@@ -1,21 +1,14 @@
 import { Router } from 'express';
+import { VerifyToken } from '../../middlewares/VerifyToken';
 import AuthorizationController from '../../controllers/Authorization/AuthorizationController';
-import VerifyToken from '../../middlewares/VerifyToken';
+import DeleteUserController from '../../controllers/User/DeleteUserController';
 
 const UserRouter = Router();
-
-// UserRouter.put("/:id", VerifyToken, (req, res) => {
-//   if (req.user._id === req.params.id || req.user.isAdmin){
-      
-//   }
-// });
 
 const authorization = new AuthorizationController();
 UserRouter.put("/:id", VerifyToken, authorization.create);
 
-// const registerUserController = new RegisterUserController();
-// const loginController = new LoginController();
-
-// UserRouter.post('/register', registerUserController.create);
+const delete_action = new DeleteUserController();
+UserRouter.delete("/:id", VerifyToken, delete_action.create);
 
 export default UserRouter;

@@ -1,4 +1,3 @@
-import { request } from 'express';
 import jwt from 'jsonwebtoken';
 
 type ServiceArg =  {

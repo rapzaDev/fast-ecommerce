@@ -26,7 +26,7 @@ class LoginService {
 
         // Setting the request.user with the user keys in db.
         request.user = {
-            _id: user.id,
+            _id: user.id,   
             isAdmin: user.isAdmin
         };
 
@@ -38,7 +38,6 @@ class LoginService {
             process.env.JWT_SECRET,
             {expiresIn:"1d"}
             );
-        console.log("acess token: ", access_token);
 
         return {...rest, access_token};
     }
