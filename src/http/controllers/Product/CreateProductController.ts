@@ -7,8 +7,6 @@ export default class CreateProductController {
             const create_product_service = new CreateProductService();
             const created_product = await create_product_service.execute(request.body);
 
-            console.log('created product', created_product);
-
             return response.status(201).json(created_product);
         } catch (error) {
             return response.status(500).json(error);
