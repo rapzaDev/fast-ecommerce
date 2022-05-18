@@ -19,6 +19,7 @@ class RegisterUserService {
           });
 
           const savedUser = await newUser.save();
+
           const { password, ...rest } = savedUser._doc;
 
           return {...rest};
