@@ -5,11 +5,15 @@ import CreateProductController from '../../controllers/Product/CreateProductCont
 import UpdateProductController from '../../controllers/Product/UpdateProductController';
 import DeleteProductController from '../../controllers/Product/DeleteProductController';
 import GetProductController from '../../controllers/Product/GetProductController';
+import GetAllProductsController from '../../controllers/Product/GetAllProductsController';
 
 const ProductRouter = Router();
 
 const create_product_controller = new CreateProductController();
 ProductRouter.post("/", VerifyTokenAndAdmin, create_product_controller.create);
+
+const get_all_products_controller = new GetAllProductsController();
+ProductRouter.get("/", get_all_products_controller.create);
 
 const get_product_controller = new GetProductController();
 ProductRouter.get("/find/:id", get_product_controller.create);
