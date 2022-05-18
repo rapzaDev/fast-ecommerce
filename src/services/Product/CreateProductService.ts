@@ -1,14 +1,5 @@
 import Product from "../../models/Product";
-
-type ProductType = {
-    title: string;
-    description: string,
-    img: string;
-    categories: Array<string>;
-    size: string;
-    color: string;
-    price: number;
-}
+import { ProductType } from '../../types';
 
 class CreateProduct {
     public async execute( productData : ProductType) {
