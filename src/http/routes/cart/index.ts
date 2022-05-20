@@ -15,12 +15,12 @@ const get_all_carts_controller = new GetAllCartsController();
 CartRouter.post("/", VerifyTokenAndAdmin, get_all_carts_controller.create);
 
 const get_cart_controller = new GetCartController();
-CartRouter.post("/find/:userId", VerifyTokenAndAdmin, get_cart_controller.create);
+CartRouter.post("/find/:userId", VerifyToken, get_cart_controller.create);
 
 const update_cart_controller = new UpdateCartController();
-CartRouter.put("/:id", VerifyTokenAndAdmin, update_cart_controller.create);
+CartRouter.put("/:id", VerifyToken, update_cart_controller.create);
 
 const delete_cart_controller = new DeleteCartController();
-CartRouter.delete("/:id", VerifyTokenAndAdmin, delete_cart_controller.create);
+CartRouter.delete("/:id", VerifyToken, delete_cart_controller.create);
 
 export default CartRouter;

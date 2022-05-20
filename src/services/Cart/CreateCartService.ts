@@ -8,7 +8,9 @@ class CreateCart {
             products: cartData.products
         });
 
-        return newCart;
+        const newCart_saved = await newCart.save();
+
+        return newCart_saved;
     }
 };
 

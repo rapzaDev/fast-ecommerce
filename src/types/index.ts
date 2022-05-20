@@ -23,3 +23,11 @@ export type CartType = {
     userId: string;
     products: Array<CartProducts>;
 };
+
+export type OrderType = {
+    userId: string,
+    products: Array<CartProducts>,
+    amount: number,
+    address: Object,
+    status: string,
+}
